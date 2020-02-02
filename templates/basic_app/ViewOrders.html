@@ -1,0 +1,55 @@
+
+{% extends "basic_app/homepage.html" %}
+{% block dropdown_content %}
+<ul class="list-group">
+  <li class="list-group-item"><a href="#">Username: {{user.username}}<br></a></li>
+  <li class="list-group-item"><a href="#">Address:  {{vendor.Address}}<br></a></li>
+  <li class="list-group-item"><a href="#">Shop Name: {{vendor.Shop_Name}}<br></a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:vendor_home'%}">Home</a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:add_item'%}">Add items</a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:ViewOrders'%}">View orders</a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:export_orders'%}">Excel report</a></li>
+</ul>
+{% endblock %}
+{% block base_body %}
+{% for item in items %}
+
+<div id="custshowitem" class="container">
+  <div class="row">
+    <div id="itempiccol" class="col">
+      {% if item.item.picture %}
+      <img src="{{item.item.picture.url}}" alt="picture" width="10%" height="10%">
+      {% endif %}
+      <br>
+    </div>
+    <div id="itemcol" class="col">
+      {{item.item.name}}
+      <br>
+      Description : {{item.item.description}}
+      <br>
+      Price : {{item.item.price}}
+      <br>
+      Customer  : {{item.customer.user.username}}
+      <br>
+      Customer Address: {{item.customer.Address}}
+      <br>
+      Order Quantity : {{item.quantity}}
+      <br>
+      Total Cost : {{item.cost}}
+    </div>
+    <div id="itembtn" class="col">
+      {% if item.order_complete %}
+        <div style="width:100%;justify-content:center;text-align:center;" class="container">
+          <h1 style="font-family: 'Dosis', sans-serif;color:green;">Order Delivered</h1>
+        </div>
+      {% else %}
+        <div style="width:100%;justify-content:center;text-align:center;" class="container">
+          <h1 style="font-family: 'Dosis', sans-serif;color:yellow;">Order not delivered yet</h1>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

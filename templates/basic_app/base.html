@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" role="main">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome to E-commerce</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Dosis:700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static  "css/index.css" %}"/>
+    {% block base_head %}
+    {% endblock %}
+  </head>
+  <body >
+    <nav>
+      <div id="navbar" class="navbar navbar-light text-light">
+            <h1 id="firsthead"><a href="{% url 'index' %}"><i class="fa fa-industry"></i> E-Commerce</a></h1>
+
+          </div>
+        </div>
+      </div>
+    </nav>
+    <script type="text/javascript">
+      function homepage(){
+        location.href="{% url 'index' %}";
+      }
+    </script>
+    {% block base_body %}
+    {% endblock %}
+  </body>
+  </html>

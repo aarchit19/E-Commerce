@@ -1,0 +1,23 @@
+{% extends "basic_app/homepage.html" %}
+{% block dropdown_content %}
+<ul class="list-group">
+  <li class="list-group-item"><a href="#">Username: {{user.username}}<br></a></li>
+  <li class="list-group-item"><a href="#">Address:  {{vendor.Address}}<br></a></li>
+  <li class="list-group-item"><a href="#">Shop Name: {{vendor.Shop_Name}}<br></a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:vendor_home'%}">Home</a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:add_item'%}">Add items</a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:ViewOrders'%}">View orders</a></li>
+</ul>
+{% endblock %}
+
+{% block base_body %}
+<div id="custbox" class="container-fluid">
+  <h2>Item Form</h2>
+  <form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-dark" name="" value="Add item">
+  </form>
+</div>
+
+{% endblock %}

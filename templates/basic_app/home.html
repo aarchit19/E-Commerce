@@ -1,0 +1,75 @@
+{% extends "basic_app/base.html" %}
+{% block base_body %}
+<div class="col box1">
+<h1>Buy and sell products all in one place</h1>
+<h1>Explore</h1>
+<button type="button" id="btn1" class="btn btn-dark" name="firstbtn">Get Started</button>
+<a id="link1" href="{% url 'social:begin' 'google-oauth2' %}">Use Google</a>
+</div>
+<div id="popupform" class="modal">
+  <nav>
+    <div id="navbar2" class="navbar navber-dark text-light">
+      <h2>Login here</h2>
+      <span id="closebtn" class='close'>&times;</span>
+    </div>
+  </nav>
+  <div class="tab">
+  <button class="tablinks" onclick="Signin(event, 'Customer')">Customer</button>
+  <button class="tablinks" onclick="Signin(event, 'Vendor')">Vendor</button>
+
+
+  <div id="Customer" class="tabcontent">
+
+    <h1>For customer</h1>
+    <form class="modal-content animate" action="{% url 'basic_app:cust_login' %}" method="post">
+      {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter Username" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <input id="login" type="submit" name="" value="Login">
+      </form>
+      <button id="scdbtn" class ="btn btn-dark" type="button" onclick="window.location.href='{% url 'basic_app:cust_register' %}';" name="scdbutton">Register here</button>
+  </div>
+
+  <div id="Vendor" class="tabcontent">
+    <h1>For Vendor</h1>
+    <form class="modal-content animate" action="{% url 'basic_app:vendor_login' %}" method="post">
+      {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter Username" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <input id="login1" type="submit" name="" value="Login">
+    </form>
+    <button id="scdbtn" class ="btn btn-dark" type="button" onclick="window.location.href='{% url 'basic_app:vendor_register' %}';" name="scdbutton">Register here</button>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+  var tabcontent = document.getElementsByClassName("tabcontent");
+  tabcontent[1].style.display = "none";
+  function Signin(evt, usertype) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(usertype).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  var popbtn = document.getElementById('btn1');
+  popbtn.addEventListener('click',function(){
+    document.getElementById('popupform').style.display='block';
+  })
+  var closebtn = document.getElementById('closebtn');
+  closebtn.addEventListener('click',function(){
+    document.getElementById('popupform').style.display='none';
+  })
+
+  function register_cust(){
+    location.href="{% url 'index' %}";
+    }
+
+</script>
+{% endblock %}

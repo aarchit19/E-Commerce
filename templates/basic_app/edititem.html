@@ -1,0 +1,27 @@
+{% extends "basic_app/homepage.html" %}
+{% block dropdown_content %}
+<ul class="list-group">
+  <li class="list-group-item"><a href="#">Username: {{user.username}}<br></a></li>
+  <li class="list-group-item"><a href="#">Address:  {{vendor.Address}}<br></a></li>
+  <li class="list-group-item"><a href="#">Shop Name: {{vendor.Shop_Name}}<br></a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:vendor_home'%}">Home</a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:add_item'%}">Add items</a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:ViewOrders'%}">View orders</a></li>
+</ul>
+{% endblock %}
+
+{% block base_body %}
+<div id="custbox" class="container-fluid">
+  <h2>Item Form</h2>
+  <form enctype="multipart/form-data" action="/basic_app/EditItemSubmit" method="POST">
+    {% csrf_token %}
+    <p><label for="id_name">Name:</label> <input type="text" value="{{item.name}}" name="name" maxlength="100" required="" id="id_name"></p>
+    <p><label for="id_picture">Picture:</label> <input type="file" name="picture" accept="image/*" id="id_picture">Leave blank if not want to change.</p>
+    <p><label for="id_description">Description:</label> <textarea name="description" value="{{item.description}}" cols="40" rows="10" maxlength="256" required="" id="id_description"></textarea></p>
+    <p><label for="id_price">Price:</label> <input type="number" name="price" value="{{item.price}}" required="" id="id_price"></p>
+    <p><label for="id_available_quantity">Available quantity:</label> <input type="number" name="available_quantity" value="{{item.available_quantity}}" required="" id="id_available_quantity"></p>
+    <button type="submit" class="btn btn-dark" style="height:42px;width:140px;" value="{{item.id}}" name="item_id">Edit Item</button>
+  </form>
+</div>
+
+{% endblock %}

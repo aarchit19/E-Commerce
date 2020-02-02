@@ -1,0 +1,50 @@
+
+{% extends "basic_app/homepage.html" %}
+{% block dropdown_content %}
+<ul class="list-group">
+  <li class="list-group-item"><a href="#">Username: {{user.username}}<br></a></li>
+  <li class="list-group-item"><a href="#">Address:  {{vendor.Address}}<br></a></li>
+  <li class="list-group-item"><a href="#">Shop Name: {{vendor.Shop_Name}}<br></a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:vendor_home'%}">Home</a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:add_item'%}">Add items</a></li>
+  <li class="list-group-item"><a href="{% url 'basic_app:ViewOrders'%}">View orders</a></li>
+</ul>
+{% endblock %}
+
+{% block base_body %}
+{% for item in items %}
+
+<div id="custshowitem" class="container">
+  <div class="row">
+    <div id="itempiccol" class="col">
+      {% if item.picture %}
+      <img src="{{item.picture.url}}" alt="picture" width="10%" height="10%">
+      {% endif %}
+      <br>
+    </div>
+    <div id="itemcol" class="col">
+      {{item.name}}
+      <br>
+      Description : {{item.description}}
+      <br>
+      Price : {{item.price}}
+      <br>
+      Available Quantity : {{item.available_quantity}}
+      <br>
+      Sold Quantity : {{item.sold_quantity}}
+    </div>
+    <div id="itembtn" class="col">
+      <form action="/basic_app/DeleteItem" method="POST">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-dark" value="{{item.id}}" name="item_id">Remove Item</button>
+      </form>
+      <form action="/basic_app/EditItem" method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-dark" value="{{item.id}}" name="item_id">Edit Item</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

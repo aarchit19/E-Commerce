@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends "basic_app/base.html" %}
+{% block base_body %}
+<div id="custbox" class="container-fluid">
+  {% if registered %}
+  <h2>Thank you for the registration</h2>
+  {% else %}
+  <h2>Register here</h2>
+  <form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    {{cust_user_form.as_p}}
+    {{cust_profile_form.as_p}}
+    <input type="submit" class="btn btn-dark" name="" value="Register">
+
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "basic_app/base.html" %}
+{% block base_body %}
+{% if user.is_authenticated %}
+<div class="col box1">
+<h1>Select</h1>
+<a id="googlecust" href="{% url 'basic_app:google_customer'%}">Customer</a>
+<a id="googlevendor" href="{% url 'basic_app:google_vendor'%}">Vendor</a>
+</div>
+{% else %}
+
+You are not Logged in
+
+{% endif %}
+
+{% endblock %}

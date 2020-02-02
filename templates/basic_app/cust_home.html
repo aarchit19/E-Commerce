@@ -1,0 +1,62 @@
+
+{% extends "basic_app/homepage.html" %}
+{% block dropdown_content %}
+<ul class="list-group">
+<li class="list-group-item"><a href="#">Username: {{user.username}}<br></a></li>
+<li class="list-group-item"><a href="#">Address:  {{customer.Address}}<br></a></li>
+<li class="list-group-item"><a href="#">Wallet Balance: {{customer.wallet_balance}}<br></a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:customer_home'%}">Home</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:ChangeAddress'%}">Change Address</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:AddBalance'%}">Add Money to Wallat</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:Cart'%}">Cart</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:WishList'%}">Wish list</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:CustomerOrderHistory'%}">Order history</a></li>
+</ul>
+
+{% endblock %}
+
+{% block base_body %}
+{% load my_extras %}
+<div style="width:100%;justify-content:center;text-align:center;font-family: 'Dosis', sans-serif;color:red;font-size:20px;" class="container">
+  {{message}}
+</div>
+
+{% for item in items %}
+
+<div id="custshowitem" class="container">
+  <div class="row">
+    <div id="itempiccol" class="col">
+      {% if item.picture %}
+      <img src="{{item.picture.url}}" alt="picture" width="10%" height="10%">
+      {% endif %}
+      <br>
+    </div>
+    <div id="itemcol" class="col">
+      {{item.name}}
+      <br>
+      Vendor : {{item.vendor.user.username}}
+      <br>
+      Description : {{item.description}}
+      <br>
+      Price : {{item.price}}
+      <br>
+      Available Quantity : {{item.available_quantity}}
+    </div>
+    <div id="itembtn" class="col">
+      <form action="/basic_app/AddItemToCart" method="POST">
+          {% csrf_token %}
+          Quantity : <input type="number" name="quantity" min="1" max="{{item.available_quantity}}" required>
+          <button class="btn btn-dark" type="submit" value="{{item.id}}" name="Cartbtn">Add to Cart</button>
+
+      </form>
+      <form action="/basic_app/AddItemToWishList" method="POST">
+          {% csrf_token %}
+          <button style="margin-left:149px;"  class="btn btn-dark" type="submit" value="{{item.id}}" name="wishlistbtn">Add to Wish list</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+{% endfor %}
+{% endblock %}

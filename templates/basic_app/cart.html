@@ -1,0 +1,64 @@
+
+{% extends "basic_app/homepage.html" %}
+{% block dropdown_content %}
+<ul class="list-group">
+<li class="list-group-item"><a href="#">Username: {{user.username}}<br></a></li>
+<li class="list-group-item"><a href="#">Address:  {{customer.Address}}<br></a></li>
+<li class="list-group-item"><a href="#">Wallet Balance: {{customer.wallet_balance}}<br></a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:customer_home'%}">Home</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:ChangeAddress'%}">Change Address</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:AddBalance'%}">Add Money to Wallat</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:Cart'%}">Cart</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:WishList'%}">Wish list</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:CustomerOrderHistory'%}">Order history</a></li>
+</ul>
+
+{% endblock %}
+
+{% block base_body %}
+{% load my_extras %}
+<div style="width:100%;justify-content:center;text-align:center;font-family: 'Dosis', sans-serif;color:red;font-size:20px;" class="container">
+  {{message}}
+</div>
+<div style="width:100%;justify-content:center;text-align:center;" class="container">
+  <h1 style="font-family: 'Dosis', sans-serif;">Cart</h1>
+</div>
+{% for item in items %}
+<div id="custshowitem" style="height:34vh;" class="container">
+  <div class="row">
+    <div id="itempiccol" class="col">
+      {% if item.item.picture %}
+      <img src="{{item.item.picture.url}}" alt="picture" width="10%" height="10%">
+      {% endif %}
+      <br>
+    </div>
+    <div id="itemcol" class="col">
+      {{item.item.name}}
+      <br>
+      Vendor : {{item.item.vendor.user.username}}
+      <br>
+      Description : {{item.item.description}}
+      <br>
+      Price : {{item.item.price}}
+      <br>
+      Available Quantity : {{item.item.available_quantity}}
+      <br>
+      Required Quantity : {{item.requested_quantity}}
+      <br>
+      Total Cost : {{item.cost}}
+    </div>
+    <div id="itembtn" class="col">
+      <form action="/basic_app/BuyItem" method="POST">
+          {% csrf_token %}
+          <button style="margin-left:140px;"  class="btn btn-dark" type="submit" value="{{item.id}}" name="Buybtn">Buy Item</button>
+      </form>
+      <form action="/basic_app/DeleteItemFromCart" method="POST">
+          {% csrf_token %}
+          <button style="margin-left:140px;"  class="btn btn-dark" type="submit" value="{{item.id}}" name="removebtn">Remove</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

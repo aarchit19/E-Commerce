@@ -1,0 +1,449 @@
+#navbar{
+  background-color: #e40046;
+  height: 80px;
+  position: relative
+  padding:0px;
+}
+
+
+#firsthead{
+    position: relative;
+    margin-top: 8px;
+    font-size: 45px;
+    font-family: 'Dosis', sans-serif;
+
+
+}
+
+
+#firsthead a:link{
+  color: white;
+}
+#firsthead a:visited{
+  color: white;
+}
+
+#firsthead a:hover{
+  opacity: 0.7;
+  text-decoration: none;
+}
+#firsthead a:active{
+  color: white;
+}
+
+#logintype{
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+
+
+body{
+  background-image: url("/static/images/background2.jpg");
+  background-size: cover;
+
+}
+
+.box1{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height:45vh;
+  width: 450px;
+  background-color: #e40046;
+  margin-top: 15vh;
+  padding-top: 5vh;
+  border-radius: 25px;
+  border-style: ridge;
+  border-color: grey;
+  border-left: none;
+  border-top: none;
+  border-width: 10px;
+  margin-left: 5px;
+}
+
+.box1 h1{
+  color: white;
+  margin-bottom: 3vh;
+  font-size: 40px;
+  font-family: 'Dosis', sans-serif;
+}
+
+
+#btn1{
+  height: 40px;
+  font-family: 'Dosis', sans-serif;
+}
+#googlecust{
+  height: 30px;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+#googlecust:hover{
+  opacity: 0.7;
+}
+#googlevendor{
+  height: 30px;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+#googlevendor:hover{
+  opacity: 0.7;
+}
+#link1{
+  height: 30px;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+#link1:hover{
+  opacity: 0.7;
+}
+
+#custbox{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height:85vh;
+  width: 500px;
+  background-color: #e40046;
+  margin-top: 15px;
+  padding-top: 5vh;
+  border-radius: 25px;
+  border-style: ridge;
+  border-color: grey;
+  border-left: none;
+  border-top: none;
+  border-width: 10px;
+  margin-left: 5px;
+}
+
+h2{
+  color: white;
+  margin-bottom: 3vh;
+  font-size: 40px;
+  font-family: 'Dosis', sans-serif;
+}
+
+p label{
+  color: white;
+  font-family: 'Dosis', sans-serif;
+  font-size: 16px;
+  padding-left: 10px;
+}
+p{
+  justify-content: center;
+  text-align: left;
+  align-items: center;
+  font-family: 'Dosis', sans-serif;
+  color: white;
+}
+
+p input{
+  display: inline-block;
+  position: relative;
+  float: right;
+  border-radius: 7px;
+  border: none;
+  width:200px;
+
+}
+p span{
+  padding:18vh;
+  color:white;
+  margin-left: 15vh;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  margin-left: 550px;
+  margin-top: 12vh;
+  height: 75vh;
+  width: 60vh;
+  overflow: auto;
+  border-radius: 20px;
+  background-color:#F6F6F6 ;
+}
+
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  margin-top: 0px;
+  width:60vh;
+  justify-content: center;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  width: 30vh;
+
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+#scdbtn:hover {
+  background-color: #ddd;
+}
+#scdbtn{
+  background-color: grey;
+  height:40px;
+  width:392px;
+  text-align: center;
+  justify-content: center;
+  padding:0px;
+  text-rendering: geometricPrecision;
+  margin-left: 23px;
+  font-family: 'Dosis', sans-serif;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  border-top: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#popupform h1{
+  color: black;
+  font-size: 35px;
+  font-family: 'Dosis', sans-serif;
+  text-align: center;
+  margin: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+#navbar2{
+  background-color: grey;
+  height:30px;
+  text-align: center;
+  padding-left: 24vh;
+  padding-right: 20px;
+  padding-bottom: 35px;
+}
+#navbar2 h2{
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.close:hover{
+  cursor: pointer;
+  opacity: 0.5;
+}
+.close{
+  color: white;
+  font-family: 'Dosis', sans-serif;
+}
+
+.tab input{
+  margin: 20px;;
+  height: 40px;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+  border-radius: 5px;
+}
+#login{
+  color: white;
+  background-color: grey;
+  height:40px;
+  width:392px;
+}
+#login:hover{
+  cursor: pointer;
+  background-color: #ddd;
+}
+#login1{
+  color: white;
+  background-color: grey;
+  height:40px;
+  width:392px;
+}
+#login1:hover{
+  cursor: pointer;
+  background-color: #ddd;
+}
+#logout{
+  color: white;
+  font-family: 'Dosis', sans-serif;
+  text-decoration: none;
+}
+#logout:hover{
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+.dropbtn {
+  background-color: none;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Dosis', sans-serif;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 340px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  font-family: 'Dosis', sans-serif;
+}
+
+/* Links inside the dropdown */
+.dropdown-content li{
+  padding: 0px;
+}
+.dropdown-content a {
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+  display: block;
+  font-family: 'Dosis', sans-serif;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+#custshowitem{
+  background-color: #FAF9F9;
+  border-radius: 7px;
+  font-family: 'Dosis', sans-serif;
+  padding: 10px;
+  height:27vh;
+  margin-top: 15px;
+  width: auto;
+  border: 1px solid grey;
+  overflow: auto;
+}
+#custshowitem{
+  background-color: #FAF9F9;
+  border-radius: 7px;
+  font-family: 'Dosis', sans-serif;
+  padding: 10px;
+  height:30vh;
+  margin-top: 15px;
+  width: auto;
+  border: 1px solid grey;
+}
+
+#itempiccol{
+  width: 200px;
+  height:26vh;
+  overflow: auto;
+}
+#itempiccol img{
+  width:200px;
+  height:24vh;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+#itemcol{
+  width:250px;
+  height:26vh;
+  font-size: 21px;
+  overflow: auto;
+}
+#itembtn{
+  width:250px;
+  height:26vh;
+  font-size: 21px;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+}
+#itembtn button{
+  height: 42px;
+  width: 140px;
+  margin: 10px;
+  border-radius: 4px;
+}
+
+h4{
+  color: black;
+  padding-left: 3px;
+}
+
+
+.topnav{
+  width: 100%;
+}
+.topnav h1 {
+  float: left;
+}
+
+.topnav-right {
+  float: right;
+}
+
+.topnav-right h2{
+  color: white;
+  margin-bottom: 0vh;
+  font-size: 25px;
+  font-family: 'Dosis', sans-serif;
+  margin-top: 20px;
+
+}
+
+#drpbtn1{
+  background-color: #e40046;
+  height:70px;
+}
+
+#drpbtn1:hover{
+  opacity: 0.7;
+}
+
+textarea {
+    overflow: scroll;
+    float: right;
+    width: 200px;
+    height: 100px;
+}
+
+p label[for*="id_description"]{
+  height:100px;
+}

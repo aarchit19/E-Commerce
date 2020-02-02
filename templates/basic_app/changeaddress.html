@@ -1,0 +1,27 @@
+{% extends "basic_app/homepage.html" %}
+{% block dropdown_content %}
+<ul class="list-group">
+<li class="list-group-item"><a href="#">Username: {{user.username}}<br></a></li>
+<li class="list-group-item"><a href="#">Address:  {{customer.Address}}<br></a></li>
+<li class="list-group-item"><a href="#">Wallet Balance: {{customer.wallet_balance}}<br></a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:customer_home'%}">Home</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:ChangeAddress'%">Change Address</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:AddBalance'%}">Add Money to Wallat</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:Cart'%}">Cart</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:WishList'%}">Wish list</a></li>
+<li class="list-group-item"><a href="{% url 'basic_app:CustomerOrderHistory'%}">Order history</a></li>
+</ul>
+
+{% endblock %}
+
+{% block base_body %}
+<div id="custbox" class="container-fluid">
+  <h2>Type new address</h2>
+  <form enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <p><label for="address">Address:</label><input type="text" name="address" maxlength="150" value="{{customer.Address}}" required="" id="address">
+    </p>
+    <input type="submit" class="btn btn-dark" name="" value="Change Address">
+  </form>
+</div>
+{% endblock %}
